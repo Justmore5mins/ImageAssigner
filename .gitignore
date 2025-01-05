@@ -1,0 +1,5 @@
+.DS_Store
+.vscode
+build
+*venv*
+Annotating/notes_jpg
