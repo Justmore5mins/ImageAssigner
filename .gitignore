@@ -3,3 +3,5 @@
 build
 *venv*
 Annotating/notes_jpg
+*.mp4
+*.MOV

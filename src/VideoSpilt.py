@@ -1,4 +1,4 @@
-from cv2 import VideoCapture, imwrite,CAP_PROP_FRAME_COUNT,CAP_PROP_FRAME_HEIGHT,CAP_PROP_FRAME_WIDTH
+from cv2 import VideoCapture, imwrite,CAP_PROP_FRAME_COUNT
 from sys import argv
 from time import perf_counter
 
@@ -15,6 +15,7 @@ except FileExistsError:
     
 allcount = 0
 for video in argv[2:]:
+    system(f"mv {video} {video.spilt(".")[0]}.mp4") if 'MOV' in video.upper() else None
     allcount += int(VideoCapture(video).get(CAP_PROP_FRAME_COUNT)/interval) if interval != 0 else int(VideoCapture(video).get(CAP_PROP_FRAME_COUNT))
 
 start = perf_counter()
@@ -29,7 +30,7 @@ for video in argv[2:]:
         while success:
             success,image = cap.read()
             if delay == interval:
-                imwrite(f"spilted/{video.split('.')[0]}{i}.jpg", image)
+                imwrite(f"spilted/{video.split('.')[0]}{i}.jpg", image) if success else warning(i)
                 time = perf_counter() - start
                 print(f"{i} out of {allcount} images ({(i/allcount*100):.2f}%) done, est {(time):.2f} secs ,eta {(time)*allcount/(1 if i == 0 else i):.2f} secs, {1/(perf_counter() - round_time):.2f} fps", end="\r",flush=True)
                 delay = 0
@@ -41,8 +42,11 @@ for video in argv[2:]:
         round_time = 0
         while success:
             success,image = cap.read()
-            imwrite(f"spilted/{video.split(".")[0]}{i}.jpg", image)
+            imwrite(f"spilted/{video.split(".")[0]}{i}.jpg", image) if success else warning(i)
             time = perf_counter() - start
             print(f"{i} out of {allcount} images ({(i/allcount):.2f}%) done, est {(time):.2f} secs ,eta {(time)*allcount/(1 if i == 0 else i):.2f} secs, {1/(perf_counter() - round_time):.2f} fps", end="\r",flush=True)
             round_time = perf_counter()
             i += 1
+            
+    def warning(round:int):
+        raise RuntimeError(f"save image failed at {round} image")
