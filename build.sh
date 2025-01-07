@@ -6,7 +6,7 @@ pyinstaller -F YamlGen.py&
 wait
 rm *.spec
 
-cd ..
+cd /Users/justmore5mins/Documents/codes/ImageAssigner
 rm -r build
 mkdir build
 mv src/dist/* build

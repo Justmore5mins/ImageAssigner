@@ -1,3 +1,4 @@
-./VideoSpilt 0 ../video.MOV ../video1.MOV
-./Preprocess
-./Assigner 5
+./build/VideoSpilt 5 videosrc/video.mp4 videosrc/video1.mp4
+./build/Preprocess spilted
+./build/Assigner 1
+rm -r assigned spilted

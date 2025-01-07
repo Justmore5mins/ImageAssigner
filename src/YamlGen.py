@@ -1,6 +1,6 @@
 from os import listdir,mkdir,system
 from sys import argv
-from shutil import copy as move
+from shutil import move
 from shutil import rmtree
 
 directory = argv[1]
@@ -17,9 +17,9 @@ with open(f"{directory}/info.txt") as file:
     #dataset name
     info = file.readlines()
     name=info[0].replace("\n","")
-    cls = info[3].split(" ")
-if len(images) % 10 != 0:
-    raise Warning("recommend images count = 10n")
+    cls = info[2].split(" ")
+#if len(images) % 10 != 0:
+    #raise Warning("recommend images count = 10n")
 
 print("creating dirs")
 try:
