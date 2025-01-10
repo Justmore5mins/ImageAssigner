@@ -1,6 +1,6 @@
 from os import listdir,mkdir,chdir
 from sys import argv
-from shutil import copy as move
+from shutil import move
 from shutil import make_archive, rmtree
 
 annotator:int = int(argv[1])
@@ -23,5 +23,5 @@ for image in listdir("spilted"):
 chdir("assigned")
 for i in range(annotator):
     make_archive(f"{i}","zip",f"{i}",verbose=True)
-    #rmtree(f"{i}")
+    rmtree(f"{i}")
     move(f"{i}.zip","..")

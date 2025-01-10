@@ -6,3 +6,10 @@ Annotating/notes_jpg
 *.mp4
 *.MOV
 datasets
+*.zip
+auto.*
+nohup.out
+6
+labels
+游子軒fin
+videosrc
