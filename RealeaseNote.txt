@@ -1,5 +1,0 @@
-NoteAlpha1: First version of this dataset (count: 77)
-NoteAlpha2: Adding more images to the dataset (count: 383)
-    NoteAlpha1a: Adding tissue paper support (count 383+150)
-NoteAlpha3: Adding more tissue paper image(count 383+295)
-NoteAlpha3a: Adding more tissue paper image and some ball item(count 388+ 395)

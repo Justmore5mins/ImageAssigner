@@ -2,14 +2,13 @@
 .vscode
 build
 *venv*
-Annotating/notes_jpg
 *.mp4
 *.MOV
-datasets
+*Note*
 *.zip
 auto.*
 nohup.out
 6
-labels
-游子軒fin
 videosrc
+*.jpg
+*.txt
